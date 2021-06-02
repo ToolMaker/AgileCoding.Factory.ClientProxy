@@ -1,0 +1,7 @@
+.vs/*
+packages/*
+*.nupkg
+*/bin/*
+*/obj/*
+*.tt
+*.user
