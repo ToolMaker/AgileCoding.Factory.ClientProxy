@@ -1,91 +1,48 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B1173290-1B68-40D0-8A6C-1E39E8F5B947}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AgileCoding.Factory.ClientProxy</RootNamespace>
-    <AssemblyName>AgileCoding.Factory.ClientProxy</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <Deterministic>true</Deterministic>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>Factories relating to service proxies</Title>
+    <Authors>Ernie Gunning</Authors>
+    <Description>Factories that create service proxies</Description>
+    <Copyright>Copyright (c) Ernie Gunning 2023</Copyright>
+    <PackageProjectUrl>https://github.com/ToolMaker/AgileCoding.Factory.ClientProxy/wiki</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ToolMaker/AgileCoding.Factory.ClientProxy</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>Factory Service proxy proxies</PackageTags>
+    <PackageReleaseNotes>Moving to core</PackageReleaseNotes>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>symbols.nupkg</SymbolPackageFormat>
+    <PackageReadmeFile>readme.md</PackageReadmeFile>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <TreatWarningsAsErrors>True</TreatWarningsAsErrors>
   </PropertyGroup>
+
   <ItemGroup>
-    <Reference Include="AgileCoding.Extentions.Activators, Version=1.0.0.2, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AgileCoding.Extentions.Activator.1.0.0.2\lib\net472\AgileCoding.Extentions.Activators.dll</HintPath>
-    </Reference>
-    <Reference Include="AgileCoding.Extentions.Attributes, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AgileCoding.Extentions.Attributes.1.0.0.1\lib\net472\AgileCoding.Extentions.Attributes.dll</HintPath>
-    </Reference>
-    <Reference Include="AgileCoding.Extentions.Enum, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AgileCoding.Extentions.Enum.1.0.0.1\lib\net472\AgileCoding.Extentions.Enum.dll</HintPath>
-    </Reference>
-    <Reference Include="AgileCoding.Extentions.Exceptions, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AgileCoding.Extentions.Exception.1.0.0.3\lib\net472\AgileCoding.Extentions.Exceptions.dll</HintPath>
-    </Reference>
-    <Reference Include="AgileCoding.Extentions.Generic, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AgileCoding.Extentions.Generic.1.0.0.1\lib\net472\AgileCoding.Extentions.Generic.dll</HintPath>
-    </Reference>
-    <Reference Include="AgileCoding.Extentions.Linq, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AgileCoding.Extentions.Linq.1.0.0.1\lib\net472\AgileCoding.Extentions.Linq.dll</HintPath>
-    </Reference>
-    <Reference Include="AgileCoding.Extentions.Loggers, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AgileCoding.Extentions.Logger.1.0.0.3\lib\net472\AgileCoding.Extentions.Loggers.dll</HintPath>
-    </Reference>
-    <Reference Include="AgileCoding.Extentions.String, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AgileCoding.Extentions.String.1.0.0.1\lib\net472\AgileCoding.Extentions.String.dll</HintPath>
-    </Reference>
-    <Reference Include="AgileCoding.Library.Enums, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AgileCoding.Library.Enums.1.0.0.1\lib\net472\AgileCoding.Library.Enums.dll</HintPath>
-    </Reference>
-    <Reference Include="AgileCoding.Library.Interfaces, Version=1.0.0.3, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AgileCoding.Library.Interfaces.1.0.0.1\lib\net472\AgileCoding.Library.Interfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="AgileCoding.Library.Loggers, Version=1.0.0.7, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AgileCoding.Library.Loggers.1.0.0.7\lib\net472\AgileCoding.Library.Loggers.dll</HintPath>
-    </Reference>
-    <Reference Include="AgileCoding.Library.Types, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AgileCoding.Library.Types.1.0.0.1\lib\net472\AgileCoding.Library.Types.dll</HintPath>
-    </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
+    <PackageReference Include="AgileCoding.Extentions.Enum" Version="2.0.4" />
+    <PackageReference Include="AgileCoding.Extentions.Generic" Version="2.0.5" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Include="MultiChannelClientProxy.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SingleChannelClientProxy.cs" />
+    <None Update="LICENSE">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+    <None Update="readme.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-    <None Include="SampleConfig.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+
 </Project>
